@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-icon": "../../../../miniprogram_npm/weapp/dist/icon/index"
+  },
+  "navigationBarTitleText":"My recruitment"
+}

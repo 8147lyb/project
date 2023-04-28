@@ -1,0 +1,64 @@
+<view>
+  <van-notice-bar
+    left-icon="/images/icon/公告.png"
+    text="{{notice}}"
+    class="notice"
+  />
+	<!-- input field -->
+  <view class="input" bindtap="search">
+	  <van-search value="{{ value }}" shape="round" background="#34c3bc" placeholder="Search occupation" />  
+  </view>
+	<!-- carousel chart -->
+	<view class="swiperBox">
+		<swiper indicator-dots autoplay class="swiper">
+			<block wx:for="{{swiper}}" wx:for-item="item" wx:index="index" wx:key="index">
+				<swiper-item>
+					<view class="swiper-item {{item}}">
+						<image src="{{item.img}}" mode="widthFix"></image>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>	
+	</view>
+
+	<!-- Function list -->
+	<view class="listBox">
+		<van-row>
+			<van-col span="8" wx:for="{{list}}" wx:for-item="item" wx:index="index" wx:key="index" data-name="{{item.tag}}" bindtap="tagDetail">
+				<view class="list">
+					<view>
+						<van-image width="40" height="40" src="{{item.img}}" />
+					</view>
+					<text>{{item.text}}</text>
+				</view>
+			</van-col>
+		</van-row>
+	</view>
+  	<!-- Latest dividing line -->
+	<van-divider contentPosition="center" customStyle="color: #1989fa;border-color: #eaeaea;font-size: 17px;margin:40rpx">
+		<van-icon name="new" />Latest occupation
+	</van-divider>
+	<!-- Latest part-time job list -->
+	<van-panel wx:for="{{new}}" wx:for-item="item" wx:for-index="index" wx:key="key" title="{{item.title}}" 
+		desc="{{item.date}}" status="{{item.status}}" data-id="{{item._id}}" data-type="{{item.type}}" bindtap="detail" class="panel">
+		<!-- <view>content</view> -->
+		<van-tag type="success" class="tag">{{item.tagName}}</van-tag>
+	</van-panel>
+  <view class="shareBox">
+    <!-- <button type="primary" open-type="contact" class="kfBtn">O
+    n
+    l
+    i
+    n
+    e</button> -->
+  </view>
+	<!-- Hot dividing line -->
+	<!-- <van-divider contentPosition="center" customStyle="color: #1989fa;border-color: #eaeaea;font-size: 17px;margin:40rpx">
+		<van-icon name="fire" />Hot part-time job
+	</van-divider> -->
+	<!-- Hot part-time job list -->
+	<!-- <van-panel wx:for="{{fire}}" wx:for-item="item" wx:for-index="index" wx:key="key" title="{{item.title}}" desc="{{fireTime}}" status="{{item.status}}" data-id="{{item._id}}" data-type="{{item.type}}" bindtap="detail"> -->
+		<!-- <view>content</view> -->
+		<!-- <van-tag type="success" class="tag">{{item.tagName}}</van-tag>
+	</van-panel> -->
+</view>

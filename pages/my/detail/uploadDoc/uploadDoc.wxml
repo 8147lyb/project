@@ -1,0 +1,40 @@
+<view class="main">
+	<view class="myJobDoc" bindtap="onChange">
+		<view>My resume</view>
+		<view >
+			<image src="{{icon[0]}}" wx:if="{{show}}" class="icon"></image>
+			<image src="{{icon[1]}}" wx:else class="icon"></image>
+		</view>
+	</view>
+<view wx:if="{{!show}}">
+	<view class="mask" wx:if="{{showMask}}">
+		<view class="alert">
+			<van-icon name="clear" class="close-alert" bindtap="isShowAlert" color="#c26565"/>
+			<text class="alert-title">New title</text>
+			<input type="text" maxlength="8" placeholder="Please enter a resume title." class="name" placeholder-class="alert-title-input-placeholder"
+			model:value="{{newTitle}}"/>
+			<button class="alert-btn" bindtap="rename">modify</button>
+		</view>
+	</view>
+	<view wx:for="{{myJobList}}" wx:key="key" wx:for-index="index" data-index="{{index}}" 
+		class="myJobList" bindtap="openDoc">
+		<view class="myJobList-left-box">
+			<van-icon name="description" color="skyblue" class="logo"/>
+			<view class="myJobList-left">
+				<view class="myJobList-left-title">{{item.title}}</view>
+				<view class="myJobList-left-date">{{item.date}}</view>
+			</view>	
+		</view>
+		<view class="myJobList-right">
+			<van-icon name="ellipsis" bindtap="settingList" data-index="{{index}}"/>
+			<view class="settingList" wx:if="{{index === clickIndex}}" >
+				<view class="rename" bindtap="isShowAlert" data-id="{{index}}">Modify the name</view>
+				<view class="del" bindtap="del" data-id="{{index}}">Delete resume</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view>
+	<button type="primary" bindtap="upload" class="upload">Upload resume</button>
+</view>
+</view>

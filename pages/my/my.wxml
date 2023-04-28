@@ -1,0 +1,37 @@
+<view class="page">
+  <!-- Avatar information -->
+  <view class="info">
+    <open-data type="groupName" open-gid="user"></open-data>
+    <view class="avatar">
+      <!-- <open-data type="userAvatarUrl" ></open-data> -->
+      <image src="{{userInfo.avatarUrl}}" mode="widthFix" style="height: inherit;width: inherit"></image>
+    </view>
+    <view class="info_text">
+      <view>{{userInfo.nickName}}</view>
+      <!-- <open-data type="userNickName"></open-data> -->
+      <!-- <view class="setInfo" bindtap="editInfo">Edit personal information</view>      -->
+    </view>
+    <view class="line"></view>
+  </view>
+  <!-- Occupational record -->
+  <!-- <view class="tic">
+    <view >Occupational record：</view>
+    <view><text style="color:red;padding-right: 10rpx">{{during}}</text>miniutes</view>
+  </view> -->
+  <view class="split"></view>
+  <!-- functional block -->
+  <view class="piece"> 
+    <view wx:for-items="{{piece}}" wx:for-item="item" wx:key="index" class="branch">
+      <navigator url="{{item.url}}" class="piece_layout" hover-class="none">
+        <view>
+          {{item.name}}
+        </view>
+        <view class="right" >
+          >
+        </view>
+      </navigator>
+    </view>  
+  </view>
+  <!-- <view class="split"></view> -->
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfomation" class="btn" wx:if="{{show}}">Click to get user information</button>
+</view>

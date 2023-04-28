@@ -1,0 +1,27 @@
+<view class="detail-container">
+		<view class="head">
+			<view class="head-left">
+				<view class="head-title">{{info.title}}</view>
+				<view class="head-time">{{time}}</view>
+			</view>
+			<view class="head-right">{{info.salary}}</view>
+		</view>
+		<view class="call">contact mobile phone：{{info.phone}}</view>
+		<view class="address">contact address：{{info.address}}</view>
+		<view class="context">{{info.context}}</view>
+		<!-- <view slot="footer" class="footer">
+			
+		</view> -->
+	<button class="btn" type="primary" bindtap="join">I want to sign up</button>
+	<van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 50%;">
+	<van-picker
+	show-toolbar
+	title="Select resume"
+	bind:cancel="onCancel"
+  bind:confirm="onConfirm"
+  columns="{{ title }}"
+  default-index="{{ 0 }}"
+  bind:change="onChange"
+/>
+</van-popup>
+</view>

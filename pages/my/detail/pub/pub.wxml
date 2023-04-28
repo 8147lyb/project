@@ -1,0 +1,17 @@
+<view class="pub-container">
+	<van-cell-group>
+		<van-field value="{{ title }}"  clearable label="Recruitment title" placeholder="Please enter a title." bind:change="onTitle" />
+		<van-field value="{{ phone }}"  clearable label="phone number" placeholder="Please enter your mobile phone number." type="number" bind:change="onPhone" />
+		<van-field value="{{ address }}"  clearable label="contact address" placeholder="Please enter the contact address." bind:change="onAddress" />
+		<van-field value="{{ email }}"  clearable label="Resume receiving mailbox" placeholder="Please enter an email address." bind:change="onEmail" />
+		<van-field value="{{ salary }}"  clearable label="salary" placeholder="Example: 10000/ month" bind:change="onSalary" />
+
+		<van-cell title="Recruitment type" is-link bindtap="isShow" value="{{tag}}"/>
+		<van-popup show="{{ show }}" position="bottom" custom-style="height: 20%;" bind:close="onClose" custom-style="height:50%">
+			<van-picker title="Select recruitment type" columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm" show-toolbar />
+		</van-popup>
+		<textarea placeholder="Please enter the recruitment content" value="{{ context }}" placeholder-class="context" bindinput="onContext"></textarea>
+	</van-cell-group>
+
+	<van-button type="primary" class="btn" bind:click="pub">Post</van-button>
+</view>
